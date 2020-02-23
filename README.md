@@ -17,20 +17,16 @@
 
 [3]: https://krspiced.pythonanywhere.com/chapters/project_titanic/feature_engineering/README.html
 
-[4]: https://krspiced.pythonanywhere.com/chapters/project_titanic/evaluating_classifiers/README.h
-tml
+[4]: https://krspiced.pythonanywhere.com/chapters/project_titanic/evaluating_classifiers/README.html
 
 [5]: https://krspiced.pythonanywhere.com
 
 [6]: https://krspiced.pythonanywhere.com/chapters/project_titanic/cross_validation/README.html
 
-[7]: https://krspiced.pythonanywhere.com/chapters/project_titanic/random_forests/random_forests.h
-tml
+[7]: https://krspiced.pythonanywhere.com/chapters/project_titanic/random_forests/random_forests.html
 
-[8]: https://krspiced.pythonanywhere.com/chapters/project_titanic/support_vector_machines/README.
-html
+[8]: https://krspiced.pythonanywhere.com/chapters/project_titanic/support_vector_machines/README.html
 
-[9]: https://krspiced.pythonanywhere.com/chapters/project_bicycles/hyperparameter_optimization/RE
-ADME.html
+[9]: https://krspiced.pythonanywhere.com/chapters/project_bicycles/hyperparameter_optimization/README.html
 
 [10]: https://krspiced.pythonanywhere.com/chapters/project_titanic/README.html
