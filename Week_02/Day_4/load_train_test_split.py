@@ -9,8 +9,8 @@ from sklearn.model_selection import train_test_split
 namelist = argv[1:]
 
 #Read two data sets and put them into two different DFs
-df_p = pd.read_csv(argv[1], index_col = 0)
-df_py = pd.read_csv(argv[2], index_col = 0)
+df_p = pd.read_csv(namelist[1], index_col = 0)
+df_py = pd.read_csv(namelist[2], index_col = 0)
 
 #Check shapes
 

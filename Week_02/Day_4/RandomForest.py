@@ -125,3 +125,11 @@ feature_importance =m_rf.feature_importances_
 plt.bar(feature_label, feature_importance)
 plt.xticks(rotation=45)
 plt.show()
+
+#-------------------------DATA v. PREDICTION ----------------------------#
+predictions = zip(num_dumm_cat['status_group'], y_pred_rf)
+final_df = pd.DataFrame(predictions, columns =  ['status_group', 'prediction'] ,index = num_dumm_cat.index)
+final_df['prediction'].replace({1: 'functional', 0:'non functional'}, inplace = True)
+
+pd.set_option('display.width', 40)
+print(final_df.head(20))
