@@ -1,0 +1,1 @@
+DARK_SKY_SECRET_KEY = '715689c33aea3acb9bc7f72d76dcd82a'
