@@ -1,0 +1,8 @@
+1-  .travis.yml, pylintrc, ??
+2- Universal style guidelines for developers
+3- Requirements, what python version and package version etc. (which is within .travis)
+4- We need to find out which one is the main .py file to get it working
+5- Fix it and pull requiest?
+6- They are writing test code or fixing their code or drink coffee
+7- Depends if it is being written from scratch. I figure not in the orders of 100. (very close)
+8- cLasses!! What is def __init__ etc. 
