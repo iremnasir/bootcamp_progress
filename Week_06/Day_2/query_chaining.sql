@@ -1,0 +1,63 @@
+-- --CRUD
+-- --1. Create, Read, Update, Delete
+-- --SELECT * FROM large_countries LIMIT 5; --like df.head(5)
+--
+-- --2. Select certain columns
+-- --SELECT country, population FROM large_countries; -- df[['country','population]]
+--
+-- --3. Select the distinct/unique continents
+-- --SELECT DISTINCT continent FROM large_countries;
+--
+-- --4. Sorting data
+-- --SELECT country, population FROM large_countries ORDER BY population DESC; -- if DESC not used it is ascending order
+--
+-- --5. FIltering Data
+-- --SELECT * FROM large_countries WHERE population > 200000000;
+--
+-- -- 6.LIKE function
+-- --SELECT * FROM large_countries WHERE country LIKE 'I%'; --select the countries that start with I
+--
+-- -- 7. Multiple Condition
+-- --SELECT * FROM large_countries WHERE country LIKE 'I%' AND population > 300000000;
+--
+-- -- 8. Grouping and Aggregating
+-- -- What is the average fertility by continent
+--
+-- --SELECT continent, AVG(fertility) AS average_fertility FROM large_countries GROUP BY continent;
+--
+-- -- Return the average fertility rate by continent only if > 2
+-- -- Having : post-filtering after aggregation
+--
+-- --SELECT continent, AVG(fertility) AS average_fertility FROM large_countries GROUP BY continent
+-- --HAVING AVG(fertility) > 2;
+--
+-- -- 8b. In multiple steps
+-- --SELECT * FROM
+-- --(SELECT continent, AVG(fertility) AS average_fertility
+-- --FROM large_countries GROUP BY continent) AS subquery
+-- --WHERE average_fertility > 2;
+--
+-- --Return the largest and the smallest country by number of inhabitants
+-- --SELECT country FROM large_countries WHERE country =
+-- --(SELECT country FROM large_countries ORDER BY population LIMIT 1)
+-- --OR country =
+-- --(SELECT country FROM large_countries ORDER BY population DESC LIMIT 1);
+--
+--
+-- -- ANOTHER WAY
+-- SELECT country FROM large_countries
+-- WHERE population =
+-- (SELECT MAX(population) FROM large_countries)
+-- OR population =
+-- (SELECT MIN(population) FROM large_countries);
+--
+-- -- ORDER
+-- (1) SELECT optional AS
+-- (2) FROM
+-- (3) WHERE
+-- (4) GROUP BY
+-- (5) HAVING
+-- (6)ORDER BY
+-- (7) LIMIT
+--
+--

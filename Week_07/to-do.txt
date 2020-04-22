@@ -1,0 +1,7 @@
+-Take countries better
+-Deploy tweet collector to airflow
+-Take more meta
+-Train a model, maybe pickle dump it
+-Make it so that the user can put the search keyword.
+-Put this code on GitHub
+-Have the Metabase directed to the own url
