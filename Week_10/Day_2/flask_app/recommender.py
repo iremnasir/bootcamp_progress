@@ -39,19 +39,19 @@ def user_recommendation(number_of_recomm, user_input_movies, user_input_ratings)
     mean_rating_1 = mean_rating()
     user = np.repeat(mean_rating_1, Q.shape[1])
     user_mov_index = convert_user_input(user_input_movies, user_input_ratings)
+    #Impute the user input ratings.
     for mov_index in user_mov_index:
+    #i.e Toy Story is movie nr 1 but at index 0 hence -1 below
         user[mov_index[0]-1] = mov_index[1]
-    print(user[2570])
-    user_df = pd.DataFrame([user, df_Q.columns], index = ['real', 'movie_ID'])
-    user_df = user_df.T
     #Get user blueprint on movies
     user_blueprint = np.dot(user, Q.T)
     prediction = model.inverse_transform(user_blueprint)
-    #Create user df
-    user_df = pd.DataFrame([user, prediction], index=['real', 'predicted'])
-    #Transform (for stylistic reasons)
-    user_df.loc['movie_ID'] = df_Q.columns
+    print(prediction.shape)
+    #Create a dataframe of user array and movieID
+    user_df = pd.DataFrame([user, df_Q.columns, prediction], index = ['real', 'movie_ID', 'predicted'])
     user_df = user_df.T
+    user_df['movie_ID'] = user_df['movie_ID'].astype(int)
+    print(user_df)
     #Round the values
     user_df['real'] = user_df['real'].round(3)
     #print(user_df.loc[user_df['real'] == 2.0])
