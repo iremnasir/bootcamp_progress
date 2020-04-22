@@ -38,34 +38,27 @@ def user_recommendation(number_of_recomm, user_input_movies, user_input_ratings)
     #Convert user input to an array
     mean_rating_1 = mean_rating()
     user = np.repeat(mean_rating_1, Q.shape[1])
+    #Find which movies had been rated
     user_mov_index = convert_user_input(user_input_movies, user_input_ratings)
     #Impute the user input ratings.
-    for mov_index in user_mov_index:
-    #i.e Toy Story is movie nr 1 but at index 0 hence -1 below
-        user[mov_index[0]-1] = mov_index[1]
-    #Get user blueprint on movies
-    user_blueprint = np.dot(user, Q.T)
-    prediction = model.inverse_transform(user_blueprint)
-    print(prediction.shape)
-    #Create a dataframe of user array and movieID
-    user_df = pd.DataFrame([user, df_Q.columns, prediction], index = ['real', 'movie_ID', 'predicted'])
+    #Make a dataframe of user (unchanged) and movie ids
+    user_df = pd.DataFrame([user, df_Q.columns], index = ['real', 'movie_ID'])
     user_df = user_df.T
-    user_df['movie_ID'] = user_df['movie_ID'].astype(int)
-    print(user_df)
+    for mov_id in user_mov_index:
+        user_df['real'].loc[user_df['movie_ID'] == mov_id[0]] = mov_id[1]
+    #Get user blueprint on movies
+    user_blueprint = np.dot(user_df['real'], Q.T)
+    prediction = model.inverse_transform(user_blueprint)
+    #Concat the dataframes
+    user_df['predicted'] = prediction
+    user_df['predicted'] = user_df['predicted'].astype(int)
     #Round the values
     user_df['real'] = user_df['real'].round(3)
-    #print(user_df.loc[user_df['real'] == 2.0])
-    #print(user_df.loc[user_df['real'] == 3.0])
-    #print(user_df.loc[user_df['real'] == 1.0])
-    #print(user_df.index)
-
-
     mean_rating_round = round(mean_rating_1, ndigits = 3)
-    #Filter unwatched movies
+    #Filter unwatched movies based on high-precision digit (non)matching
     user_df = user_df[user_df['real']==mean_rating_round]
     #Sort for recommendation
     recomm_for_user = user_df.sort_values(by = 'predicted', ascending = False)
-    print(recomm_for_user)
     #Map the movie ids
     movies_ = recomm_for_user['movie_ID'].map(movie_id_dict)
     #Restrict the number
