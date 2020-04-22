@@ -47,7 +47,7 @@ def create_dense():
     return user_movie_matrix
 
 def model_fit(dense_matrix):
-    model = NMF(n_components=30, init='random', random_state=10)
+    model = NMF(n_components=150, init='random', random_state=10)
     model.fit(dense_matrix)
     return model
 
