@@ -3,14 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome!</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
   </head>
   <body>
-    <select name= choices method="GET" action="/">
-    {% for colour in colours %}
-    <option value= "{{choices}}" SELECTED>{{choices}}</option>"
-    {% endfor %}
-</select>
 
+<div class="container">
+
+
+  <h1>Let's do some match-making!:</h1>
+
+  <form class="" action="/index">
+  <label for="Movies">Choose the number of movies you want to enter:</label>
+    <select name="choicenr">
+    {% for choice in choices %}
+    <option value= "{{choice}}" SELECTED>{{choice}}</option>"
+    {% endfor %}
+    <input type="submit" name="" value="Submit">
+    </select>
+    </form>
+
+
+</div>
 
   </body>
 </html>

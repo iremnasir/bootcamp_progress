@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Recommender</title>
-  </head>
-  <body>
-    <h1>Here is what you entered:</h1>
+<head>
+<meta charset="utf-8">
+<title>Recommender</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
 
-    <ul>
-    {% for m, r in user_input %}
-    <li> Movie: {{m}} </li>
-    <li> Rating: {{r}} </li>
-    {% endfor %}
+<h1>Here is what you entered:</h1>
 
-    <br>
-    </ul>
+<ul>
+{% for m, r in user_input %}
+<li> Movie: {{m}} </li>
+<li> Rating: {{r}} </li>
+{% endfor %}
+<br>
+</ul>
 
-    <h1>Here are your recommended movies:</h1>
-
-      <ul>
-        {% for i in result %}
-        <li>{{ i }}</li>
-        <!-- Jinja for loop -->
-        {% endfor %}
-      </ul>
-      <a href='/index'>Go back home</a>
-  </body>
+<h1>Here are your <span id="recommended"recommended</span> movies:</h1>
+<ul>
+{% for i in result %}
+<li class="recommendation-list">{{ i }}</li>
+{% endfor %}
+</ul>
+<a href='/'>Go back home</a>
+</body>
 </html>

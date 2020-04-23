@@ -3,25 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Movie - Homepage</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
   </head>
   <body>
 
-    <h1>Hello World</h1><br>
-      <h3>Welcome to my site!</h3>
+    <h1>Tell me more about yourself</h1><br>
+    <h2>Rate some movies so I can do a better match:</h2><br>
+
+        <form action="/recommender" method="get">
+          {% for i in range(choicenr) %}
+            <input type="text" name="{{ i }}" placeholder="Enter a Movie Title">
+            <input type="text" name="{{ i }}" placeholder="Enter a Rating (1-5)">
+            <br>
+          {% endfor%}
+         </form>
+         <br>
 
       <form class="" action="/recommender">
-        <p>Enter some movie ratings</p>
-        <input type="text" name="movie1" value="" placeholder="Enter a Movie Title">
-        <input type="text" name="rating1" value="" placeholder="Enter a Rating (1-5)">
-        <br>
-        <input type="text" name="movie2" value="" placeholder="Enter a Movie Title">
-        <input type="text" name="rating2" value="" placeholder="Enter a Rating (1-5)">
-        <br>
-        <input type="text" name="movie3" value="" placeholder="Enter a Movie Title">
-        <input type="text" name="rating3" value="" placeholder="Enter a Rating (1-5)">
-        <br>
-        <input type="submit" name="" value="Give me suggestions!">
-      </form>
+      <label for="models">Whom do you want to match with?:</label>
+        <select name="model">
+        <option value= "NMF">Machine</option>"
+        <option value= "cosine">User</option>"
+        <input type="submit" name="" value="Submit">
+        </select>
+        </form>
+
 
   </body>
 </html>

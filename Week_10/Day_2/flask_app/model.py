@@ -53,9 +53,3 @@ def model_fit(dense_matrix):
 
 def dump_model(model):
     dump(model, './NMF.joblib')
-
-
-
-filled_user_matrix = create_dense()
-NMF = model_fit(filled_user_matrix)
-dump_model(NMF)
