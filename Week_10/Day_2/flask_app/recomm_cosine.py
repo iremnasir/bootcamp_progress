@@ -2,6 +2,9 @@ from model import create_dense, movie_id_dict, mean_rating
 import numpy as np
 from scipy.spatial import distance
 from recommender import convert_user_input
+import pandas as pd
+from fuzzywuzzy import fuzz
+
 
 def cosine_similarity(number_of_recomm, user_input_movies, user_input_ratings):
     #Create the mean-filled dense_matrix
@@ -33,6 +36,12 @@ def cosine_similarity(number_of_recomm, user_input_movies, user_input_ratings):
     #Final matrix
     neighbors_m = dense_matrix_user.loc[neighbors.index]
     #Take the first user and suggest movies that person liked
-    movies_list = list(neighbors_m.iloc[0].sort_values(ascending = False)
-                        .head(number_of_recomm).index.map(movie_id_dict))
-    return movies_list
+    random_mov = np.random.randint(6)
+    movies_list = list(neighbors_m.iloc[random_mov].sort_values(ascending = False)
+                        .head(number_of_recomm*2).index.map(movie_id_dict))
+    reconstruct = []
+    for m in user_input_movies:
+        for movie in movies_list:
+            if not fuzz.token_sort_ratio(movie, m) > 90:
+                reconstruct.append(movie)
+    return reconstruct

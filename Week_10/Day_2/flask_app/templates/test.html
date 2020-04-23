@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome!</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-  </head>
-  <body>
+{% extends "_base.html" %}
 
-<div class="container">
+{% block content %}
 
 
-  <h1>Let's do some match-making!:</h1>
+<div class="jumbotron">
 
-  <form class="" action="/index">
-  <label for="Movies">Choose the number of movies you want to enter:</label>
-    <select name="choicenr">
-    {% for choice in choices %}
-    <option value= "{{choice}}" SELECTED>{{choice}}</option>"
-    {% endfor %}
-    <input type="submit" name="" value="Submit">
+  <h1>Let's do some match-making!:</h1><br>
+  <h3>Choose the number of movies you want to enter:</h3>
+
+  <form class="jumbotron" action="/index">
+    <select name="choicenr" class=btn btn-secondary btn-lg dropdown-toggle>
+      {% for choice in choices %}
+      <option value="{{choice}}" SELECTED>{{choice}}</option>"
+      {% endfor %}
+      <br><br>
+      <input type="submit" name="" value="Submit" class="btn btn-primary">
     </select>
-    </form>
 
+  </form>
 
 </div>
 
-  </body>
-</html>
+{% endblock %}

@@ -1,33 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Movie - Homepage</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-  </head>
-  <body>
+{% extends "_base.html" %}
 
-    <h1>Tell me more about yourself</h1><br>
-    <h2>Rate some movies so I can do a better match:</h2><br>
-
-        <form action="/recommender" method="get">
-          {% for i in range(choicenr) %}
-            <input type="text" name="{{ i }}" placeholder="Enter a Movie Title">
-            <input type="text" name="{{ i }}" placeholder="Enter a Rating (1-5)">
-            <br>
-          {% endfor%}
-         </form>
-         <br>
-
-      <form class="" action="/recommender">
-      <label for="models">Whom do you want to match with?:</label>
-        <select name="model">
-        <option value= "NMF">Machine</option>"
-        <option value= "cosine">User</option>"
-        <input type="submit" name="" value="Submit">
-        </select>
-        </form>
+{% block content %}
 
 
-  </body>
-</html>
+<div class="jumbotron">
+<h1>Tell me more about yourself</h1><br>
+<h2>Rate some movies so I can do a better match:</h2><br>
+<div class="form-group">
+<form action="/recommender" method="get">
+  {% for i in range(choicenr) %}
+  <input type="text" name="movie{{ i }}" placeholder="Enter a Movie Title">
+  <input type="text" name="rating{{ i }}" placeholder="Enter a Rating (1-5)">
+  <br>
+  {% endfor%}
+<br>
+
+  <label for="models">Whom do you want to match with?:</label>
+  <select name="model">
+    <option value="NMF">Machine</option>"
+    <option value="cosine">User</option>"
+    <br>
+    <br>
+    <br>
+    <input type="submit" name="" value="Submit" class="btn btn-primary">
+  </select>
+</form>
+</div>
+{% endblock %}

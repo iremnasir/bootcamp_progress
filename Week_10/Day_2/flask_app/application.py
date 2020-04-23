@@ -23,10 +23,12 @@ def hello_world():
 @app.route('/recommender')
 def recommender():
     user_input = dict(request.args)
-    print(user_input)
-    user_input_movies = list(user_input.values())[::2]
-    user_input_ratings = list(user_input.values())[1::2]
+    user_input_movies = list(user_input.values())[:-1:2]
+    user_input_ratings = list(user_input.values())[1:-1:2]
+    user_input_model = list(user_input.values())[-1]
     user_input = zip(user_input_movies, user_input_ratings)
-    #if user selects movies show NMF else similar users
-    result = user_recommendation(10, user_input_movies, user_input_ratings)
+    if user_input_model == 'NMF':
+        result = user_recommendation(10, user_input_movies, user_input_ratings)
+    else:
+        result = cosine_similarity(10, user_input_movies, user_input_ratings)
     return render_template('recommender.html', result=result, user_input=user_input)
