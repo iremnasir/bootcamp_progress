@@ -39,9 +39,5 @@ def cosine_similarity(number_of_recomm, user_input_movies, user_input_ratings):
     random_mov = np.random.randint(6)
     movies_list = list(neighbors_m.iloc[random_mov].sort_values(ascending = False)
                         .head(number_of_recomm*2).index.map(movie_id_dict))
-    reconstruct = []
-    for m in user_input_movies:
-        for movie in movies_list:
-            if not fuzz.token_sort_ratio(movie, m) > 90:
-                reconstruct.append(movie)
-    return reconstruct
+
+    return movies_list
