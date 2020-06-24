@@ -10,4 +10,4 @@ found here:
 
 * The project presentation as a Jupyter notebook can be found [here](https://github.com/iremnasir/bootcamp_progress/blob/master/Week_01/Day_4/Project_Work-Wandering.ipynb) for the first GIF as an example.
 
-* After the bootcamp, I chose this project as my pet project to advance further my Bokeh skills. It is about visualization of **child mortality rate correlation with population and income (as size of blobs) for all countries, **. The project can be found [here](https://github.com/iremnasir/bootcamp_progress/blob/master/Week_01/income_child_mortality/Child_Mortality_Income_Population_Bokeh.ipynb)
+* After the bootcamp, I chose this project as my pet project to advance further my Bokeh skills. It is about visualization of **child mortality rate correlation with population and income (as size of blobs) for all countries**. The project can be found [here](https://github.com/iremnasir/bootcamp_progress/blob/master/Week_01/income_child_mortality/Child_Mortality_Income_Population_Bokeh.ipynb)
